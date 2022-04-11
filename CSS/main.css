@@ -8,6 +8,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
 }
 
 html {
@@ -23,6 +25,7 @@ body {
     "sidebar header"
     "sidebar main";
   grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr 5fr;
 }
 
 /* Sidebar --Start-- */
@@ -81,7 +84,9 @@ body {
   grid-area: header;
   background-color: #fff;
   padding: 20px 40px;
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  /* Z-index needed because Grid allows Stacking because of which the shadow will not be visible by default */
+  z-index: 1;
 }
 
 /* Header: Profile Area */
@@ -103,13 +108,17 @@ body {
   gap: 10px;
 }
 
+.search > img {
+  height: 100%;
+}
+
 .search > input {
   appearance: none;
   outline: none;
   border: none;
   border-radius: 50px;
   width: 100%;
-  padding: 0.2rem 1rem;
+  padding: 0.4rem 1rem;
   background-color: #e2e8f0;
 }
 
@@ -137,7 +146,7 @@ body {
 }
 
 .profile > img {
-  width: 72px;
+  width: 52px;
   border-radius: 50%;
 }
 
@@ -183,5 +192,155 @@ body {
 /* Main --Start-- */
 .main {
   grid-area: main;
+  padding: 30px 20px;
+  background-color: #e2e8f0;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-template-areas:
+    "projects announcements"
+    "projects trending"
+    "projects .";
+  /* This is so that with a list of more projects TRend & Announcement will stay fixed */
+  grid-template-rows: repeat(2, 350px);
+  grid-auto-rows: auto;
+  row-gap: 20px;
+}
+
+/* Main: Projects */
+.projects {
+  grid-area: projects;
+  padding-right: 20px;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+/* Projects: Project Listing */
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 210px;
+  gap: 30px;
+  overflow-y: auto;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+
+/* Project Listing: Project Card */
+.projectCard {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-image: linear-gradient(to right, #fbbf24 0, #fbbf24 7px, #fff 7px);
+  padding: 20px;
+  border-radius: 7px;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
+}
+
+.projectCard-title {
+  font-weight: 550;
+}
+
+.projectCard-info {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.projectCard-actions {
+  justify-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Main: Announcements */
+.announcements {
+  grid-area: announcements;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+/* Announcements: Announcements Listing */
+.announcements-list {
+  display: grid;
+  grid-auto-rows: 1fr;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 7px;
+  overflow-y: auto;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Announcements Listing: Announcement Card */
+.announcementCard {
+  padding: 10px 0;
+}
+
+.announcementCard + .announcementCard {
+  border-top: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.announcementCard:last-child {
+  padding: 10px 0 0;
+}
+
+.announcementCard-title {
+  font-size: 0.9rem;
+}
+
+.announcementCard-info {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Main: Trending */
+.trending {
+  grid-area: trending;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+/* Trending: Trending Listing */
+.trending-list {
+  display: grid;
+  grid-auto-rows: 74px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 7px;
+  overflow-y: auto;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Trending Listing: Trend Card */
+.trendCard {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.trendCard:last-child {
+  padding: 10px 0 0;
+}
+
+.trendCard > img {
+  height: 100%;
+  border-radius: 50%;
+}
+
+.trendCard-info {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.trendCard-userhandle {
+  font-size: 0.8rem;
+}
+
+.trendCard-heading {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.6);
 }
 /* Main --End-- */
