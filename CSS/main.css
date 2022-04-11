@@ -31,7 +31,6 @@ body {
   padding: 20px;
   background-color: #1992d4;
   color: #fff;
-  outline: 1px solid red;
 }
 
 /* Sidebar: Logo */
@@ -80,13 +79,109 @@ body {
 /* Header --Start-- */
 .header {
   grid-area: header;
-  outline: 1px solid blue;
+  background-color: #fff;
+  padding: 20px 40px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Header: Profile Area */
+.profileArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  margin-bottom: 30px;
+}
+
+/* Profile Area: Search */
+.search {
+  flex: 0 0 auto;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.search > input {
+  appearance: none;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  width: 100%;
+  padding: 0.2rem 1rem;
+  background-color: #e2e8f0;
+}
+
+/* Profile Area: User Area */
+.userarea {
+  flex: 0 0 auto;
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Header: Actions Area */
+.actionsArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Actions Area: Profile */
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.profile > img {
+  width: 72px;
+  border-radius: 50%;
+}
+
+.profile-info {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.profile-info > span {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.profile-info > .profile-name {
+  font-size: 1.2rem;
+}
+
+/* Actions Area: Actions */
+.actions {
+  flex: 0 0 auto;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10%;
+}
+
+.actionBtn {
+  flex: 1 0 0;
+  width: min(50px, max-content);
+  appearance: none;
+  background-color: #1992d4;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
 }
 /* Header --End-- */
 
 /* Main --Start-- */
 .main {
   grid-area: main;
-  outline: 1px solid green;
 }
 /* Main --End-- */
