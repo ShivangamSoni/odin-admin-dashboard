@@ -12,4 +12,81 @@
 
 html {
   font-family: "Roboto", sans-serif;
+  height: 100%;
 }
+
+/* Body */
+body {
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  grid-template-rows: auto 1fr;
+}
+
+/* Sidebar --Start-- */
+.sidebar {
+  grid-area: sidebar;
+  padding: 20px;
+  background-color: #1992d4;
+  color: #fff;
+  outline: 1px solid red;
+}
+
+/* Sidebar: Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.logo > img {
+  height: 32px;
+}
+
+.logo > h1 {
+  font-weight: 900;
+}
+
+/* Sidebar: Nav */
+.nav {
+  margin-top: 40px;
+}
+
+.nav-menu {
+  list-style: none;
+}
+
+.nav-menu > li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.nav-menu > li + li {
+  margin-top: 10px;
+}
+
+.nav-menu + .nav-menu {
+  margin-top: 40px;
+}
+
+/* Sidebar --End-- */
+
+/* Header --Start-- */
+.header {
+  grid-area: header;
+  outline: 1px solid blue;
+}
+/* Header --End-- */
+
+/* Main --Start-- */
+.main {
+  grid-area: main;
+  outline: 1px solid green;
+}
+/* Main --End-- */
