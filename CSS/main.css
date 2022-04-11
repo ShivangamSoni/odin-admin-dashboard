@@ -83,7 +83,7 @@ body {
 .header {
   grid-area: header;
   background-color: #fff;
-  padding: 20px 40px;
+  padding: 10px 40px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
   /* Z-index needed because Grid allows Stacking because of which the shadow will not be visible by default */
   z-index: 1;
@@ -94,8 +94,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 50px;
-  margin-bottom: 30px;
+  gap: 30px;
+  margin-bottom: 10px;
 }
 
 /* Profile Area: Search */
@@ -128,6 +128,12 @@ body {
   width: 20%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.userarea > .profileImage {
+  width: 48px;
+  border-radius: 50%;
 }
 
 /* Header: Actions Area */
@@ -146,7 +152,7 @@ body {
 }
 
 .profile > img {
-  width: 52px;
+  width: 72px;
   border-radius: 50%;
 }
 
@@ -178,14 +184,41 @@ body {
   flex: 1 0 0;
   width: min(50px, max-content);
   appearance: none;
-  background-color: #1992d4;
-  outline: none;
+  outline: 1px solid currentColor;
   border: none;
   border-radius: 50px;
   color: #fff;
+  background-color: #1992d4;
   font-weight: 600;
   padding: 0.5rem 0.5rem;
   cursor: pointer;
+  position: relative;
+  isolation: isolate;
+  transition: color 400ms linear;
+}
+
+.actionBtn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: inherit;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 400ms linear;
+  z-index: -1;
+}
+
+.actionBtn:hover {
+  color: #1992d4;
+}
+
+.actionBtn:hover::after {
+  transform: scaleX(1);
+  transform-origin: right;
 }
 /* Header --End-- */
 
@@ -253,7 +286,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 15px;
+}
+
+.projectCard-actions > button {
+  appearance: none;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  padding: 0.2rem;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 300ms linear;
+}
+
+.projectCard-actions > button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Main: Announcements */
@@ -318,6 +369,7 @@ body {
 .trendCard {
   display: flex;
   align-items: center;
+  gap: 10px;
   padding: 10px 0;
 }
 
